@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tic toc</title>
+
+	<style type="text/css">
+		
+		.board{
+			width: 300px;
+			height: 300px;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: start;
+			border: 1px solid black;
+		}
+
+		.cell{
+			flex-basis: calc(calc(100% / 3) );
+			height: calc(calc(100% / 3) );
+			outline: 1px dashed red;
+			
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div class="board">
+		
+		<div class="cell">a</div>
+		<div class="cell">b</div>
+		<div class="cell">c</div>
+		<div class="cell">d</div>
+		<div class="cell">e</div>
+		<div class="cell">f</div>
+		<div class="cell">g</div>
+		<div class="cell">h</div>
+		<div class="cell">i</div>
+
+
+
+
+	</div>
+
+</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</html>
+
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+
+		let borderThikness = 2;
+
+		let arr = [
+
+			[{char:'a',box:{}}, {char:'b',box:{}}, {char:'c',box:{}}],
+			[{char:'d',box:{}}, {char:'e',box:{}}, {char:'f',box:{}}],
+			[{char:'g',box:{}}, {char:'h',box:{}}, {char:'i',box:{}}]
+
+		]
+
+		for(let i=0;i<arr.length;i++){
+
+			for(let j=0;j<arr.length;j++){
+
+				arr[i][j].box = {
+					x: j * ($(".board .cell").width() ), // margin-left
+					y: i * ($(".board .cell").height() ), // margin-top
+					w: $(".board .cell").width(),
+					h: $(".board .cell").height() 
+				}
+				
+			}
+		}
+
+		console.log(arr)
+		
+		$(".board").click(function(e){
+
+	 	var elm = $(this);
+	    var xPos = e.pageX - elm.offset().left;
+	    var yPos = e.pageY - elm.offset().top;
+
+
+
+	    let clicked = [];
+
+	    for(let i=0;i<arr.length;i++){
+
+			for(let j=0;j<arr.length;j++){
+
+				if( arr[i][j].box.x <= xPos && arr[i][j].box.x + arr[i][j].box.w >= xPos &&  arr[i][j].box.y <= yPos && arr[i][j].box.y + arr[i][j].box.h >= yPos ){
+					console.log(arr[i][j])
+
+				}
+				
+			}
+		}
+
+	    	
+
+	    
+		console.log(`x = ${xPos} y = ${yPos}`)
+
+
+		})
+		
+	})
+
+</script>

@@ -1,0 +1,76 @@
+html,body{
+	background-color: #ecf0f1;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+
+
+.scroll_wrapper{
+	height: 100vh;
+	display: flex;
+	overflow: hidden;
+	transition: transform 500ms ease; 
+}
+
+.scroll_el{
+
+	height: 100%;
+	background-color: #3498db;
+	color: white;
+	text-align: center;
+	line-height: 100vh;
+	position: relative;
+	flex-shrink: 0;
+	user-select: none;
+
+
+
+}
+
+
+.scroll_el:nth-child(1){
+	background-color: #1abc9c;
+}
+.scroll_el:nth-child(2){
+	background-color: #2ecc71;
+}
+.scroll_el:nth-child(3){
+	background-color: #3498db;
+}
+.scroll_el:nth-child(4){
+	background-color: #9b59b6;
+}
+.scroll_el:nth-child(5){
+	background-color: #34495e;
+}
+.scroll_el:nth-child(6){
+	background-color: #16a085;
+}
+.scroll_el:nth-child(7){
+	background-color: #27ae60;
+}
+.scroll_el:nth-child(8){
+	background-color: #2980b9;
+}
+.scroll_el:nth-child(9){
+	background-color: #8e44ad;
+}
+.scroll_el:nth-child(10){
+	background-color: #2c3e50;
+}
+
+
+
+
+
+.scroll_wrapper:hover{
+	background-color: #2980b9;
+	cursor: grab;
+}
+
+
+
+#lightSlider li{
+	background-color: gray;
+}
